@@ -27,4 +27,44 @@ class Board
       puts "\n+- - - - - -+"
     end
   end
+
+  def board_full
+    for row in 0..BOARD_MAX_INDEX
+      for col in 0..BOARD_MAX_INDEX
+        if @board[row][col] == EMPTY_POS
+          return false
+        end
+      end
+    end
+    return true
+  end
+
+  def winner
+    winner = winner_rows()
+    if winner
+      return winner
+    end
+    winner = winner_cols()
+    if winner
+      return winner
+    end
+    winner = winner_diagonals()
+    if winner
+      return winner
+    end
+    # no winner
+    return 
+  end
+
+
+
+
+
+
+
+
+
+
+
 end
+
